@@ -37,20 +37,20 @@ Transition the Java Runtime from C/C++ to Rust.
 Goals
 -----
 
-// What are the goals of this proposal?  Omit this section if you have
-// nothing to say beyond what's already in the summary.
-1. Enhance the source code for the Java Runtime with support for Rust
+1. Start the work.
+2. Enhance the source code for the Java Runtime with support for Rust
    1. Add support for Rust Code and the Rust Standard Library
    2. Add support for C/C++ to call Rust
    3. Add support for Rust to call C/C++
-2. Create a Proof of Concept written in Rust
-  1. Implement some small, useful, not-trivial function
+3. Create a Proof of Concept written in Rust
+  1. Implement some small, practical, not-trivial function in Rust
 
 Non-Goals
 ---------
 
-1. Consider languages other than Rust
-2. Make any user-visible changes
+1. Finish the work.
+2. Consider languages other than Rust
+3. Make any user-visible changes
    1. Although it is fair to speculate on what user-visible changes might look like
 
 Success Metrics
@@ -58,6 +58,7 @@ Success Metrics
 
 // If the success of this work can be gauged by specific numerical
 // metrics and associated goals then describe them here.
+1. 
 
 Motivation
 ----------
@@ -93,6 +94,8 @@ Description
 // becoming the authoritative high-level description of the end result.
 // Include hyperlinks to additional documents as required.
 
+
+
 Alternatives
 ------------
 
@@ -106,6 +109,11 @@ Testing
 // to validate this enhancement, beyond the usual mandatory unit tests?
 // Be sure to list any special platform or hardware requirements.
 
+Regression testing is paramount to demonstrate that Rust functionality has kept all existing functionality intact.
+
+Performance testing helps characterize the performance impact of replacing C/C++ with Rust.
+
+
 Risks and Assumptions
 ---------------------
 
@@ -113,6 +121,9 @@ Risks and Assumptions
 // this proposal.  Could any plausible events derail this work, or even
 // render it unnecessary?  If you have mitigation plans for the known
 // risks then please describe them.
+
+A fundamental assumption is that Rust is a better programming language than C/C++ to maintain and improve the
+intgrity of the Java Runtime.
 
 Dependencies
 ------------
