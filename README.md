@@ -1,34 +1,5 @@
 # Rusty-Java
 
-//
-// JDK Enhancement Proposal ("JEP") body template, v2.0
-//
-// ==> Delete all lines starting with "//"
-//     before entering a proposal into JBS
-//
-// Instances of this template are meant to be evolving documents.  When
-// you initially draft a JEP you don't need to fill out every section of
-// the template, and in fact at that point you probably won't be able to
-// do so.  As you get feedback and build consensus around your proposal
-// you'll revise the JEP accordingly.  If your JEP is accepted and targeted
-// then you'll continue to revise it as the work progresses so that, once
-// it's complete, the JEP can serve as an authoritative record of what
-// was actually done.
-//
-// The body of a JEP uses the Markdown markup language
-// (http://daringfireball.net/projects/markdown/basics).
-//
-// All sections are optional except those marked REQUIRED.  Keep sections
-// in the order shown below.  If an optional section is not needed then
-// simply omit it rather than write something like "None".  Do not add
-// sections beyond those defined in the template.
-//
-// Use lines of dashes ("----") under section titles, not equals signs
-// ("====").  If you need subsections then use the "###" prefix before
-// subsection headings and "####" before sub-subsection headings.  Do not
-// use HTML markup (`<h2>`, etc.) for section headings.  In general, avoid
-// HTML markup unless it's absolutely necessary.
-
 Summary
 -------
 
@@ -48,7 +19,7 @@ Goals
 Non-Goals
 ---------
 
-1. Finish the work.
+1. Finish the work
 2. Consider languages other than Rust
 3. Make any user-visible changes
    1. Although it is fair to speculate on what user-visible changes might look like
@@ -56,20 +27,18 @@ Non-Goals
 Success Metrics
 ---------------
 
-// If the success of this work can be gauged by specific numerical
-// metrics and associated goals then describe them here.
-1. 
+1. Proof Of Concept of Rust code called from C/C++ in the JVM - binary metric
+2. More than one automated Unit Test
+3. More than one automated Integration Test
 
 Motivation
 ----------
 
-// Why should this work be done?  What are its benefits?  Who's asking
-// for it?  How does it compare to the competition, if any?
 Rust has proven itself as a low-level systems programming language capable of replacing C/C++
 with superior code requiring less effort.
 
 1. Linux has begun adding Rust to the kernel, notably drivers.
-2. As of October 2023, Microsoft has been actively incorporating the Rust programming language
+2. Since October 2023, Microsoft has actively incorporated the Rust programming language
    into various projects to enhance security, performance, and reliability. Rust’s emphasis on
    memory safety and concurrency without sacrificing speed makes it an attractive choice for
    system-level programming. (chat.openai.com version o1-preview)
@@ -77,6 +46,7 @@ with superior code requiring less effort.
    languages
    1. As part of this effort, it is also considering using LLM GPT technology to rewrite C/C++
       in Rust
+   2. Can this technology be used for this JSR, and would we want to?
 
 
 Description
@@ -94,36 +64,34 @@ Description
 // becoming the authoritative high-level description of the end result.
 // Include hyperlinks to additional documents as required.
 
-
+1. Initially, a Proof Of Concept
+2. Feature flags in code so a run-time flag can only enable the feature, such as "--rust"
+3. 
 
 Alternatives
 ------------
 
-// Did you consider any alternative approaches or technologies?  If so
-// then please describe them here and explain why they were not chosen.
+No alternatives have been seriously considered, but there might exist languages better than Rust for this.
 
 Testing
 -------
-
-// What kinds of test development and execution will be required in order
-// to validate this enhancement, beyond the usual mandatory unit tests?
-// Be sure to list any special platform or hardware requirements.
 
 Regression testing is paramount to demonstrate that Rust functionality has kept all existing functionality intact.
 
 Performance testing helps characterize the performance impact of replacing C/C++ with Rust.
 
+High-quality static analysis would help if it exists for Rust code.
+
 
 Risks and Assumptions
 ---------------------
 
-// Describe any risks or assumptions that must be considered along with
-// this proposal.  Could any plausible events derail this work, or even
-// render it unnecessary?  If you have mitigation plans for the known
-// risks then please describe them.
-
 A fundamental assumption is that Rust is a better programming language than C/C++ to maintain and improve the
 intgrity of the Java Runtime.
+
+A fundamental risk is that this could destabilize the JVM in unexpected ways. The mitigation is to ensure adequate automated testing.
+
+Serious destabilization results could render this unnecessary.
 
 Dependencies
 ------------
