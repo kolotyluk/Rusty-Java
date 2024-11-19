@@ -8,13 +8,15 @@ Transition the Java Runtime from C/C++ to Rust.
 Goals
 -----
 
-1. Start the work.
+1. Start the work
 2. Enhance the source code for the Java Runtime with support for Rust
    1. Add support for Rust Code and the Rust Standard Library
    2. Add support for C/C++ to call Rust
-   3. Add support for Rust to call C/C++
+   3. Add support for Rust to call C/C++ (optional)
 3. Create a Proof of Concept written in Rust
-  1. Implement some small, practical, not-trivial function in Rust
+  1. Implement some small, practical, not-trivial functions in Rust
+  2. Make changes to the JVM that are evidence of Rust being called at runtime
+4. Start writing the next JSR
 
 Non-Goals
 ---------
@@ -30,12 +32,14 @@ Success Metrics
 1. Proof Of Concept of Rust code called from C/C++ in the JVM - binary metric
 2. More than one automated Unit Test
 3. More than one automated Integration Test
+4. At least one performance test
+5. Improved regression testing
 
 Motivation
 ----------
 
-Rust has proven itself as a low-level systems programming language capable of replacing C/C++
-with superior code requiring less effort.
+Over ten years, Rust has proven itself as a low-level systems programming language capable of
+replacing C/C++ with superior code requiring less effort.
 
 1. Linux has begun adding Rust to the kernel, notably drivers.
 2. Since October 2023, Microsoft has actively incorporated the Rust programming language
@@ -47,6 +51,7 @@ with superior code requiring less effort.
    1. As part of this effort, it is also considering using LLM GPT technology to rewrite C/C++
       in Rust
    2. Can this technology be used for this JSR, and would we want to?
+   3. Could we get DARPA funding for Rusy Java?
 
 
 Description
@@ -64,9 +69,18 @@ Description
 // becoming the authoritative high-level description of the end result.
 // Include hyperlinks to additional documents as required.
 
-1. Initially, a Proof Of Concept
-2. Feature flags in code so a run-time flag can only enable the feature, such as "--rust"
-3. 
+1. Start the work
+   1.  Feature flags in code so a run-time flag can only enable the feature, such as "--rust"
+3. Enhance the source code for the Java Runtime with support for Rust
+   1. Add support for Rust Code and the Rust Standard Library
+      1. Rust Logging
+      2. Rust failure handling
+   3. Add support for C/C++ to call Rust
+   4. Add support for Rust to call C/C++ (optional)
+4. Create a Proof of Concept written in Rust
+  1. Implement some small, practical, not-trivial functions in Rust
+  2. Make changes to the JVM that are evidence of Rust being called at runtime
+4. Start writing the next JSR
 
 Alternatives
 ------------
@@ -76,7 +90,8 @@ No alternatives have been seriously considered, but there might exist languages 
 Testing
 -------
 
-Regression testing is paramount to demonstrate that Rust functionality has kept all existing functionality intact.
+Regression testing is paramount to demonstrate that Rust functionality has kept all existing
+functionality intact without compromising anything.
 
 Performance testing helps characterize the performance impact of replacing C/C++ with Rust.
 
@@ -89,7 +104,8 @@ Risks and Assumptions
 A fundamental assumption is that Rust is a better programming language than C/C++ to maintain and improve the
 intgrity of the Java Runtime.
 
-A fundamental risk is that this could destabilize the JVM in unexpected ways. The mitigation is to ensure adequate automated testing.
+A fundamental risk is that this could destabilize the JVM in unexpected ways.
+The mitigation is to ensure adequate automated testing.
 
 Serious destabilization results could render this unnecessary.
 
@@ -102,3 +118,7 @@ Dependencies
 //
 // Describe any JEPs that depend upon this JEP, and likewise make sure
 // they are linked to this issue in JBS.
+
+1. Graal?
+2. https://jcp.org/en/jsr/detail?id=924
+3. 
